@@ -11,3 +11,16 @@ nav a {
 nav a:visited {
   color: purple;
 }
+
+/* ============================== Progress Bar ================================== */
+
+.progress-bar-wrapper {
+  height: 4px;
+  width: 100%;
+  background-color: #a3a3a3;
+}
+
+.progress-bar {
+  height: 4px;
+  background-color: blue;
+}
