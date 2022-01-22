@@ -24,3 +24,12 @@ nav a:visited {
   height: 4px;
   background-color: blue;
 }
+
+/* ============================== Spinner ================================== */
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

@@ -1,7 +1,7 @@
 const URL =
   "http://my-json-server.typicode.com/DanielBarbakadze/Advanced-JS-and-React-Basics/db";
 
-export function getQuizData() {
+export async function getQuizData() {
   const APICache = localStorage.getItem("getQuizDataCache");
 
   if (APICache) {
@@ -16,12 +16,14 @@ export function getQuizData() {
     }
   }
 
-  return fetch(URL)
+  return await fetch(URL)
     .then((res) => res.json())
     .then((response) => {
       localStorage.setItem(
         "getQuizDataCache",
         JSON.stringify({ date: new Date(), response })
       );
+
+      return response;
     });
 }
