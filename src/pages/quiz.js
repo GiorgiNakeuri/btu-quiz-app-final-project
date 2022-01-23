@@ -3,6 +3,7 @@ import { Oval } from "react-loader-spinner";
 
 import { ProgressBar } from "../components/progress-bar";
 import { getQuizData } from "../api/get-quiz-data";
+import { SingleQuestion } from "../components/single-question";
 
 export default function Quiz() {
   const [quizData, setQuizData] = useState({ abswers: [], questions: [] });
@@ -30,12 +31,32 @@ export default function Quiz() {
       </div>
     );
 
+  const { question, questionType, correctAnswer, possibleAnswers } = {
+    question: quizData.questions.find(({ id }) => id === questionIndex + 1)
+      .question,
+    questionType: quizData.questions.find(({ id }) => id === questionIndex + 1)
+      .type,
+    possibleAnswers: quizData.questions.find(
+      ({ id }) => id === questionIndex + 1
+    )?.options,
+    correctAnswer: quizData.answers.find(({ id }) => id === questionIndex + 1)
+      .answer,
+  };
+
   return (
     <div>
       <ProgressBar
         questionIndex={questionIndex}
         questionAmount={quizData.questions.length}
       />
+      <h2>{question}</h2>
+
+      {questionType === "single" && (
+        <SingleQuestion
+          correctAnswer={correctAnswer}
+          possibleAnswers={possibleAnswers}
+        />
+      )}
     </div>
   );
 }
