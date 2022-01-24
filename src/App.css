@@ -1,5 +1,5 @@
-.App {
-  text-align: center;
+main {
+  margin: 0 20px;
 }
 
 nav a {
@@ -12,11 +12,31 @@ nav a:visited {
   color: purple;
 }
 
+button {
+  background: none;
+  border: 1px solid rgb(100, 91, 233);
+  color: rgb(255 255 255);
+  background: #7878e7;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-left: 40px;
+}
+
+button:disabled {
+  color: black;
+  background: none;
+  border: 1px solid black;
+  cursor: not-allowed;
+}
+
 /* ============================== Progress Bar ================================== */
 
 .progress-bar-wrapper {
+  position: absolute;
   height: 4px;
   width: 100%;
+  top: 0;
+  left: 0;
   background-color: #a3a3a3;
 }
 
