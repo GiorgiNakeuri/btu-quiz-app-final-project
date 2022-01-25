@@ -5,6 +5,8 @@ import { ProgressBar } from "../components/progress-bar";
 import { getQuizData } from "../api/get-quiz-data";
 import { SingleQuestion } from "../components/single-question";
 import { MultiQuestion } from "../components/multi-question";
+import { BooleanQuestion } from "../components/boolean-question";
+import { Results } from "../components/results";
 
 export default function Quiz() {
   const [quizData, setQuizData] = useState({ abswers: [], questions: [] });
@@ -20,7 +22,9 @@ export default function Quiz() {
   }, []);
 
   const handleNextQuestionClick = (wasAnswerCorrect) => {
-    setQuestionIndex((prev) => prev + 1);
+    if (questionIndex + 1 !== quizData.questions.length) {
+      setQuestionIndex((prev) => prev + 1);
+    }
 
     setRoundState((prev) => [...prev, { questionIndex, wasAnswerCorrect }]);
   };
@@ -51,6 +55,10 @@ export default function Quiz() {
       .answer,
   };
 
+  if (roundState.length === quizData.questions.length) {
+    return <Results results={roundState} />;
+  }
+
   return (
     <div>
       <ProgressBar
@@ -70,6 +78,14 @@ export default function Quiz() {
       {questionType === "multiple" && (
         <MultiQuestion
           correctAnswer={correctAnswer}
+          possibleAnswers={possibleAnswers}
+          onNextQuestion={handleNextQuestionClick}
+        />
+      )}
+
+      {questionType === "boolean" && (
+        <BooleanQuestion
+          orrectAnswer={correctAnswer}
           possibleAnswers={possibleAnswers}
           onNextQuestion={handleNextQuestionClick}
         />
