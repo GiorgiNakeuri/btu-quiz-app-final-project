@@ -53,3 +53,45 @@ button:disabled {
   align-items: center;
   height: 100vh;
 }
+
+/* ============================== History Item ================================== */
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  width: 400px;
+  background-color: rgb(197 193 255);
+  margin-top: 10px;
+}
+
+/* ============================== ContextMenu================================== */
+
+.context-menu {
+  position: absolute;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: white;
+  margin: 2px;
+  width: 100px;
+}
+
+.context-menu button {
+  width: 100%;
+  color: black;
+  border: none;
+  background: none;
+  text-align: start;
+  padding: 5px;
+  margin: 0;
+  text-align: center;
+}
+
+.outside-click-listener {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
