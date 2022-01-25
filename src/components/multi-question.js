@@ -32,7 +32,7 @@ export function MultiQuestion({
     if (isAnswerCorrect) e.target.style.color = "green";
     else e.target.style.color = "red";
 
-    setIsAnswerCorrect(true);
+    setIsAnswerCorrect(isAnswerCorrect);
     setIsNextQuestionVisible(true);
   };
 
