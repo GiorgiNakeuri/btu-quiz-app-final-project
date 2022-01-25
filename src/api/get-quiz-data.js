@@ -1,5 +1,5 @@
 const URL =
-  "http://my-json-server.typicode.com/DanielBarbakadze/Advanced-JS-and-React-Basics/db";
+  "https://my-json-server.typicode.com/DanielBarbakadze/Advanced-JS-and-React-Basics/db";
 
 export async function getQuizData() {
   const APICache = localStorage.getItem("getQuizDataCache");
