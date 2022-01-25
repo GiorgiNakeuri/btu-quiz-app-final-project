@@ -4,10 +4,12 @@ import { Oval } from "react-loader-spinner";
 import { ProgressBar } from "../components/progress-bar";
 import { getQuizData } from "../api/get-quiz-data";
 import { SingleQuestion } from "../components/single-question";
+import { MultiQuestion } from "../components/multi-question";
 
 export default function Quiz() {
   const [quizData, setQuizData] = useState({ abswers: [], questions: [] });
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [roundState, setRoundState] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -16,6 +18,12 @@ export default function Quiz() {
       setQuizData(response);
     })();
   }, []);
+
+  const handleNextQuestionClick = (wasAnswerCorrect) => {
+    setQuestionIndex((prev) => prev + 1);
+
+    setRoundState((prev) => [...prev, { questionIndex, wasAnswerCorrect }]);
+  };
 
   if (!quizData.questions.length)
     return (
@@ -49,12 +57,21 @@ export default function Quiz() {
         questionIndex={questionIndex}
         questionAmount={quizData.questions.length}
       />
-      <h2>{question}</h2>
+      <h2>{`${questionIndex + 1}) ${question}`}</h2>
 
       {questionType === "single" && (
         <SingleQuestion
           correctAnswer={correctAnswer}
           possibleAnswers={possibleAnswers}
+          onNextQuestion={handleNextQuestionClick}
+        />
+      )}
+
+      {questionType === "multiple" && (
+        <MultiQuestion
+          correctAnswer={correctAnswer}
+          possibleAnswers={possibleAnswers}
+          onNextQuestion={handleNextQuestionClick}
         />
       )}
     </div>

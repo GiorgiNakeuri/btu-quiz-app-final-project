@@ -7,6 +7,7 @@ export function SingleQuestion({
 }) {
   const [isNextQuestionVisible, setIsNextQuestionVisible] = useState(false);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
