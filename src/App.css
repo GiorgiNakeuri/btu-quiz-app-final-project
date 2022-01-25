@@ -1,38 +1,97 @@
-.App {
+main {
+  margin: 0 20px;
+}
+
+nav a {
+  color: blue;
+  padding: 10px;
+  margin: 5px;
+}
+
+nav a:visited {
+  color: purple;
+}
+
+button {
+  background: none;
+  border: 1px solid rgb(100, 91, 233);
+  color: rgb(255 255 255);
+  background: #7878e7;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-left: 40px;
+}
+
+button:disabled {
+  color: black;
+  background: none;
+  border: 1px solid black;
+  cursor: not-allowed;
+}
+
+/* ============================== Progress Bar ================================== */
+
+.progress-bar-wrapper {
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #a3a3a3;
+}
+
+.progress-bar {
+  height: 4px;
+  background-color: blue;
+}
+
+/* ============================== Spinner ================================== */
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* ============================== History Item ================================== */
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  width: 400px;
+  background-color: rgb(197 193 255);
+  margin-top: 10px;
+}
+
+/* ============================== ContextMenu================================== */
+
+.context-menu {
+  position: absolute;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: white;
+  margin: 2px;
+  width: 100px;
+}
+
+.context-menu button {
+  width: 100%;
+  color: black;
+  border: none;
+  background: none;
+  text-align: start;
+  padding: 5px;
+  margin: 0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.outside-click-listener {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
 }
